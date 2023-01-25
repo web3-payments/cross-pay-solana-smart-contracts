@@ -154,7 +154,7 @@ describe("cross_pay_solana", () => {
       .transaction()
 
     txn.recentBlockhash = (await connection.getLatestBlockhash()).blockhash;
-    // txn.feePayer = provider.wallet.publicKey;
+
     txn.feePayer = customer.publicKey;
 
     await sendAndConfirmTransaction(connection, txn, [customer])
