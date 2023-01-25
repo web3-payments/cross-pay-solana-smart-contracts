@@ -45,7 +45,6 @@ pub fn pay_with_token(ctx: Context<PayWithTokenContext>, amount: u64) -> Result<
         .unwrap();
     let client_amount = amount - fee;
     assert_eq!(client_amount + fee, amount);
-    assert!(fee > 0);
 
     // transfer amount - fees to client
     anchor_spl::token::transfer(ctx.accounts.transfer_payment_to_client(), client_amount)?;
