@@ -153,11 +153,12 @@ describe("cross_pay_solana", () => {
       })
       .transaction()
 
+    txn.recentBlockhash = (await connection.getLatestBlockhash()).blockhash;
+
+    txn.feePayer = customer.publicKey;
+
     await sendAndConfirmTransaction(connection, txn, [customer])
 
-
-    txn.recentBlockhash = (await connection.getLatestBlockhash()).blockhash;
-    txn.feePayer = customer.publicKey;
 
     console.log("Estimated Tx Fee: ", await txn.getEstimatedFee(connection));
 
@@ -165,6 +166,7 @@ describe("cross_pay_solana", () => {
 
     const difference = customerBalanceBefore - customerBalanceAfter;
     expect(difference).to.equal(amount)
+    console.log(difference, amount);
 
     const feeBalanceAfter = await connection.getBalance(solFeeAccount);
     const feeBalDifference = feeBalanceAfter - feeAccountBalanceBefore

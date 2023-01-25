@@ -9,7 +9,7 @@ pub mod state;
 
 use instructions::*;
 
-declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
+declare_id!("GLRu4n249vQNpfPdubfiz4kw2AVV1yUyJ9brLB4crvzd");
 
 const DIVISOR: u64 = 10000;
 // const FEE: u64 = 140; //1.4%
