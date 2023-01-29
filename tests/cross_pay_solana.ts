@@ -160,13 +160,11 @@ describe("cross_pay_solana", () => {
     await sendAndConfirmTransaction(connection, txn, [customer])
 
 
-    console.log("Estimated Tx Fee: ", await txn.getEstimatedFee(connection));
-
+    const getEstimatedFee = await txn.getEstimatedFee(connection);
     const customerBalanceAfter = await connection.getBalance(customer.publicKey);
 
-    const difference = customerBalanceBefore - customerBalanceAfter;
+    const difference = customerBalanceBefore - customerBalanceAfter - getEstimatedFee;
     expect(difference).to.equal(amount)
-    console.log(difference, amount);
 
     const feeBalanceAfter = await connection.getBalance(solFeeAccount);
     const feeBalDifference = feeBalanceAfter - feeAccountBalanceBefore
