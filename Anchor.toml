@@ -9,7 +9,9 @@ url = "https://api.apr.dev"
 
 [provider]
 cluster = "Localnet"
-wallet = "/Users/m1/.config/solana/id.json"
+wallet = "./keys/id.json" #73U7u2pAKsm7RxKMjbQtHuhh4L94581QQvzWtqKyuqeZ
+[test.validator]
+faucet_sol = "1500000000000000000" 
 
 [scripts]
 test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
