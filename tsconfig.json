@@ -5,7 +5,12 @@
               "lib": ["es2015"],
               "module": "commonjs",
               "target": "es6",
-              "esModuleInterop": true
-            }
+              "esModuleInterop": true,
+              "resolveJsonModule": true,
+              "moduleResolution": "node",                       /* Specify how TypeScript looks up a file from a given module specifier. */
+              "rootDir": "./scripts/src",                                  /* Specify the root folder within your source files. */
+              "outDir": "./scripts/build"
+            },
+          "exclude": ["tests", "utils","migrations", "target"]
           }
           

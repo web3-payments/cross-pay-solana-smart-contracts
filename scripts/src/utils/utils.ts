@@ -3,6 +3,13 @@ import { AddressLookupTableProgram, Keypair, TransactionInstruction, Transaction
 import * as anchor from "@project-serum/anchor";
 
 export const CLUSTER = "localnet"
+
+
+export function createKeypairFromFile(path: string): Keypair {
+    return Keypair.fromSecretKey(
+        Buffer.from(JSON.parse(require('fs').readFileSync(path, "utf-8")))
+    )
+};
 export const getSecretKey = (name: string) =>
     Uint8Array.from(
         JSON.parse(fs.readFileSync(`keys/${name}.json`) as unknown as string)
