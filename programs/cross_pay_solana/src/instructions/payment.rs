@@ -71,7 +71,8 @@ pub struct PayWithTokenContext<'info> {
     )]
     customer_token_account: Box<Account<'info, TokenAccount>>,
     #[account(
-        mut,
+        init_if_needed,
+        payer = customer,
         token::mint=token_mint,
         token::authority=client,
     )]

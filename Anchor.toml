@@ -16,7 +16,7 @@ faucet_sol = "1500000000000000000"
 [scripts]
 test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
 
-
+    
 # commands
 # solana program deploy target/deploy/cross_pay_solana.so 
 # anchor keys list 
