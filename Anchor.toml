@@ -8,7 +8,7 @@ cross_pay_solana = "EdFNrBQdR4zMvzFh1HopuS5N9z6wjfWubcWpMfAvgWPC"
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "mainnet"
+cluster = "localnet"
 wallet = "./keys/id.json" #73U7u2pAKsm7RxKMjbQtHuhh4L94581QQvzWtqKyuqeZ
 [test.validator]
 faucet_sol = "1500000000000000000" 

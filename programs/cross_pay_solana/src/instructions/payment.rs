@@ -13,6 +13,8 @@ pub fn pay_with_sol(ctx: Context<PayWithSolContext>, amount: u64) -> Result<()> 
     let admin_state = &ctx.accounts.admin_state;
     //ensure customer has up to ``amount``
     let sol_balance = ctx.accounts.customer.lamports();
+
+    msg!("sol_balance: {}", sol_balance);
     require!(sol_balance >= amount, ErrorCode::InsufficientBalance);
     // calculate fees
 
@@ -73,8 +75,8 @@ pub struct PayWithTokenContext<'info> {
     #[account(
         init_if_needed,
         payer = customer,
-        token::mint=token_mint,
-        token::authority=client,
+        associated_token::mint=token_mint,
+        associated_token::authority=client,
     )]
     client_token_account: Box<Account<'info, TokenAccount>>,
     #[account(

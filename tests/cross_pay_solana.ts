@@ -192,6 +192,8 @@ describe("cross_pay_solana", () => {
       })
       .signers([customer])
       .rpc()
+      .catch(e => console.log(e)
+      )
 
     let feeAccountBalance = await connection.getTokenAccountBalance(tokenFeeAccount);
     expect(feeAccountBalance.value.amount).to.equal(tokenFee.toString())
